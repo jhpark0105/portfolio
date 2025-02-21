@@ -20,6 +20,47 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 
+		<style>
+			/* 하위 메뉴 숨김 처리 */
+			.sub-menu {
+				display: none;
+				transition: all 0.3s ease;
+			}
+
+			.sub-menu.active {
+				display: block;
+			}
+
+			/* 현재 섹션 표시 효과 */
+			.active-section {
+				font-weight: bold;
+				color: #ff6b6b !important;
+			}
+		</style>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				const portMenu = document.querySelector("#portfolio-menu");
+				const subMenu = document.querySelector(".sub-menu");
+				const portVolSection = document.getElementById("port-vol1");
+
+				// PORTFOLIO 클릭 시 토글
+				portMenu.addEventListener("click", function(e) {
+					e.preventDefault();
+					subMenu.classList.toggle("active");
+				});
+
+				// 스크롤 시 하위 메뉴 자동 펼침 및 현재 위치 표시
+				window.addEventListener("scroll", function() {
+					const rect = portVolSection.getBoundingClientRect();
+					if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+						subMenu.classList.add("active");
+						document.querySelector(".sub-link").classList.add("active-section");
+					} else {
+						document.querySelector(".sub-link").classList.remove("active-section");
+					}
+				});
+			});
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -35,43 +76,21 @@
 							<p>BACK-END DEVELOPER</p>
 						</div>
 
-					<!-- Nav -->
-<!--						<nav id="nav">-->
-<!--							<ul>-->
-<!--								<li><a href="#top" id="top-link"><span class="icon solid fa-home">INTRO</span></a></li>-->
-<!--								<li><a href="#about" id="about-link"><span class="icon solid fa-user">ABOUT ME</span></a></li>-->
-<!--								<li><a href="#skills" id="skills-link"><span class="icon solid fa-user">SKILLS</span></a></li>-->
-<!--&lt;!&ndash;								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>&ndash;&gt;-->
-<!--&lt;!&ndash;								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>&ndash;&gt;-->
-<!--								<li>-->
-<!--									<a href="#portfolio" id="portfolio-link">-->
-<!--										<span class="icon solid fa-th">PORTFOLIO</span>-->
-<!--									</a>-->
-<!--									<ul>-->
-<!--										<li><a href="#port-vol1" class="sub-link">PORT VOL.01</a></li>-->
-<!--&lt;!&ndash;										<li><a href="#port-vol2" class="sub-link">Port Vol2</a></li>&ndash;&gt;-->
-<!--									</ul>-->
-<!--								</li>-->
-<!--								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">ARCHIVING</span></a></li>-->
-<!--							</ul>-->
-<!--						</nav>-->
-
 					<nav id="nav">
 						<ul>
 							<li><a href="#top" id="top-link"><span class="icon bi bi-house">INTRO</span></a></li>
 							<li><a href="#about" id="about-link"><span class="icon bi bi-person">ABOUT ME</span></a></li>
 							<li><a href="#skills" id="skills-link"><span class="icon bi bi-tools">SKILLS</span></a></li>
 							<li>
-								<a href="#portfolio" id="portfolio-link">
-									<span class="icon bi bi-briefcase">PORTFOLIO</span>
-								</a>
-								<ul>
+								<a href="#portfolio" id="portfolio-menu"><span class="icon bi bi-briefcase">PORTFOLIO</span></a>
+								<ul class="sub-menu">
 									<li><a href="#port-vol1" class="sub-link">PORT VOL.01</a></li>
 								</ul>
 							</li>
-							<li><a href="#contact" id="contact-link"><span class="icon bi bi-archive">ARCHIVING</span></a></li>
+							<li><a href="#archiving" id="archiving-link"><span class="icon bi bi-archive">ARCHIVING</span></a></li>
 						</ul>
 					</nav>
+
 
 				</div>
 
@@ -98,43 +117,16 @@
 						<div class="container">
 
 							<header>
-<!--								<h2 class="alt">Hi! I'm <strong>Prologue</strong>, a <a href="http://html5up.net/license">free</a> responsive<br />-->
-<!--								site template designed by <a href="http://html5up.net">HTML5 UP</a>.</h2>-->
-<!--								<p>Ligula scelerisque justo sem accumsan diam quis<br />-->
-<!--								vitae natoque dictum sollicitudin elementum.</p>-->
 								<h1>BACK-END DEVELOPER</h1>
 								<h5 class="alt">사람들에게 도움을 주는 웹 서비스를 만드는 신입 개발자, 박제희입니다.<br /></h5>
 
 							</header>
-
-<!--							<footer>-->
-<!--								<a href="#portfolio" class="button scrolly">Magna Aliquam</a>-->
-<!--							</footer>-->
 
 						</div>
 					</section>
 
 
 				<!-- About Me -->
-<!--				<section id="about" class="two">-->
-<!--					<div class="container">-->
-
-<!--						<header>-->
-<!--							<h2>About Me</h2>-->
-<!--						</header>-->
-
-<!--						<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>-->
-
-<!--						<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus-->
-<!--							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae-->
-<!--							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem-->
-<!--							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper-->
-<!--							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec-->
-<!--							ornare iaculis.</p>-->
-
-<!--					</div>-->
-<!--				</section>-->
-
 				<section id="about" class="two">
 					<div class="container about-container">
 						<!-- 프로필 이미지 -->
@@ -144,7 +136,6 @@
 
 						<!-- About Me 내용 -->
 						<div class="about-content">
-<!--							<h2>About Me</h2>-->
 							<p style="font-size: 16pt">
 								안녕하세요. 신입 백엔드 개발자 박제희입니다. <br>
 								저는 Spring Boot를 주 언어로 사용하고 있으며, Java, Spring, MariaDB 등 웹 개발에 대해 공부하고 있습니다.<br>
@@ -154,8 +145,6 @@
 								앞으로도 꾸준한 도전과 노력으로 더욱 발전하는 개발자가 되겠습니다.
 							</p>
 
-
-							<!-- Profile & Certificate 같은 줄 -->
 							<div class="about-row">
 								<div class="profile">
 									<h3>PROFILE</h3>
@@ -190,24 +179,6 @@
 
 
 				<!-- Skills -->
-<!--				<section id="skills" class="three">-->
-<!--					<div class="container">-->
-
-<!--						<header>-->
-<!--							<h2>Skills</h2>-->
-<!--						</header>-->
-
-<!--						<a href="#" class="image featured"><img src="images/pic08.jpg" alt="" /></a>-->
-
-<!--						<p>Tincidunt eu elit diam magnis pretium accumsan etiam id urna. Ridiculus-->
-<!--							ultricies curae quis et rhoncus velit. Lobortis elementum aliquet nec vitae-->
-<!--							laoreet eget cubilia quam non etiam odio tincidunt montes. Elementum sem-->
-<!--							parturient nulla quam placerat viverra mauris non cum elit tempus ullamcorper-->
-<!--							dolor. Libero rutrum ut lacinia donec curae mus vel quisque sociis nec-->
-<!--							ornare iaculis.</p>-->
-
-<!--					</div>-->
-<!--				</section>-->
 				<section id="skills" class="three">
 					<div class="container">
 
@@ -279,17 +250,19 @@
 					</div>
 				</section>
 
+
 				<!-- Portfolio Detail Section -->
 				<section id="port-vol1" class="portfolio-detail">
 					<div class="container">
 						<div class="portfolio-detail-content">
 							<div class="portfolio-detail-image">
-								<img src="your-image-url.png" alt="포트폴리오 이미지">
+								<img src="images/portfolio/port_vol01_main.png" alt="포트폴리오 이미지1">
+								<img src="images/portfolio/port_vol1_reservation.png" alt="포트폴리오 이미지2">
 							</div>
 
 							<div class="portfolio-detail-text">
 								<h3 class="portfolio-title">PORT VOL.01</h3>
-								<p class="portfolio-description">웹기반 소상공인 ERP 시스템</p>
+								<p class="portfolio-description"><strong>[ 웹기반 소상공인 ERP 시스템 ]</strong></p>
 
 								<ul class="portfolio-detail-list">
 									<li><strong>개발 기간:</strong> 2024.12 ~ 2025.01 (1개월)</li>
@@ -330,34 +303,43 @@
 <!--					</div>-->
 <!--				</section>-->
 
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
+				<!-- Archiving -->
+				<section id="archiving" class="four">
+					<div class="container">
 
-							<header>
-								<h2>Contact</h2>
-							</header>
+						<header>
+							<h2 style="font-weight: bold">ARCHIVING</h2>
+						</header>
 
-							<p>Elementum sem parturient nulla quam placerat viverra
-							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
+						<div class="archiving-content-horizontal">
+							<div class="archive-card">
+								<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="archive-icon">
+								<h3>GitHub</h3>
+								<a href="https://github.com/jhpark0105" target="_blank">https://github.com/jhpark0105</a>
+								<p><strong>소스코드 저장소입니다.</strong></p>
+								<ul>
+									<li>프로젝트 코드</li>
+									<li>코딩 연습 및 학습 코드</li>
+								</ul>
+							</div>
 
-							<form method="post" action="#">
-								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<input type="submit" value="Send Message" />
-									</div>
-								</div>
-							</form>
-
+							<div class="archive-card">
+								<img src="images/tstory.png" alt="Tistory Logo" class="archive-icon">
+								<h3>Tistory</h3>
+								<a href="https://hee-coding.tistory.com/" target="_blank">https://hee-coding.tistory.com/</a>
+								<p><strong>공부 목적의 블로그입니다.</strong></p>
+								<ul>
+									<li>공부한 것을 나의 것으로 만들기 위한 기록</li>
+									<li>웹 개발자의 길과 관련 지식 정리</li>
+								</ul>
+							</div>
 						</div>
-					</section>
+
+					</div>
+				</section>
+
+
+
 
 			</div>
 
@@ -365,9 +347,9 @@
 			<div id="footer">
 
 				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
+<!--					<ul class="copyright">-->
+<!--						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>-->
+<!--					</ul>-->
 
 			</div>
 

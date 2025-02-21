@@ -323,22 +323,26 @@ nav ul .sub-menu {
 	margin-top: 20px;
 }
 
-/* 버튼 스타일 수정 */
+/* 버튼 스타일 수정 (더 작은 크기) */
 .btn {
 	display: inline-block;
-	padding: 6px 12px;  /* 기존보다 작은 크기로 조정 */
-	font-size: 14px;    /* 기존보다 작은 폰트 크기 */
-	background-color: #007bff;
-	color: #fff;
+	padding: 3px 12px;  /* 버튼 크기 더 작게 조정 */
+	font-size: 11px;    /* 글씨 크기 더 작게 조정 */
+	background-color: transparent; /* 배경 제거 */
+	color: #333;        /* 글씨 색상 변경 */
 	text-decoration: none;
-	border-radius: 5px;
-	margin-right: 8px; /* 버튼 간격 조정 */
-	transition: background 0.3s ease;
+	border: 1.5px solid #333;  /* 테두리 두께 줄임 */
+	border-radius: 4px;        /* 버튼 모서리 둥글기 조금 줄임 */
+	margin-right: 8px;         /* 버튼 간격 조정 */
+	font-weight: bold;
+	transition: all 0.3s ease;
 }
 
 .btn:hover {
-	background-color: #0056b3;
+	background-color: #333;  /* 마우스 오버 시 배경색 */
+	color: #fff;             /* 마우스 오버 시 글자색 */
 }
+
 
 
 .portfolio-detail-image {
@@ -350,6 +354,90 @@ nav ul .sub-menu {
 	border-radius: 10px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
+/* 가로형 Archiving Section 스타일 */
+.archiving-content-horizontal {
+	display: flex;
+	justify-content: center;
+	gap: 80px; /* 박스 간격 더 넓힘 */
+	flex-wrap: nowrap; /* 한 줄에 나열 */
+	margin-top: 40px;
+}
+
+.archive-card {
+	width: 300px;               /* 박스 크기 조정 */
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.archive-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.archive-icon {
+	width: 60px;
+	height: 60px;
+	margin-bottom: 15px;
+}
+
+.archive-card h3 {
+	font-size: 18px;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.archive-card a {
+	display: block;
+	color: #007bff;
+	text-decoration: none;
+	margin-bottom: 12px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.archive-card a:hover {
+	text-decoration: underline;
+}
+
+.archive-card p {
+	font-size: 14px;
+	color: #666;
+	margin-bottom: 12px;
+}
+
+.archive-card ul {
+	list-style: none;
+	padding: 0;
+	text-align: left;
+	font-size: 13px;
+	color: #555;
+}
+
+.archive-card ul li {
+	margin-bottom: 6px;
+}
+
+/* 반응형 - 작은 화면에서는 세로 배치 */
+@media (max-width: 768px) {
+	.archiving-content-horizontal {
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+	}
+
+	.archive-card {
+		width: 100%;
+		max-width: 350px;
+	}
+}
+
+
 
 
 
