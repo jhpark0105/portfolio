@@ -257,7 +257,8 @@
 						<div class="portfolio-detail-content">
 							<div class="portfolio-detail-image">
 								<img src="images/portfolio/port_vol01_main.png" alt="포트폴리오 이미지1">
-								<img src="images/portfolio/port_vol1_reservation.png" alt="포트폴리오 이미지2">
+								<img src="images/portfolio/port__vol01_login.png" alt="포트폴리오 이미지2">
+								<img src="images/portfolio/port_vol1_reservation.png" alt="포트폴리오 이미지3">
 							</div>
 
 							<div class="portfolio-detail-text">
@@ -277,10 +278,29 @@
 									<li><strong>TOOL:</strong> INTELLIJ, WEBSTORM, DATAGRIP, SWAGGER, GITHUB</li>
 								</ul>
 
+								<h4 class="portfolio-subtitle">개발 파트</h4>
+								<ul class="portfolio-detail-list">
+									<li><strong>로그인 페이지: </strong>JWT를 통해 인증 / 로그인을 관리하며 아아디 저장 선택 시, 쿠키에 아이디를 저장하여 아이디를 자동으로 출력</li>
+									<li><strong>예약 대기 페이지: </strong>예약 대기 상태의 목록을 조회하여 예약을 관리 </li>
+									<li><strong>예약 현황 페이지: </strong>예약 확정과 예약 취소 상태의 목록을 조회</li>
+								</ul>
+
+								<h4 class="portfolio-subtitle">회고</h4>
+								<ul class="portfolio-detail-list">
+									<li>
+										처음 진행한 팀 프로젝트에서 예약 관리 파트를 맡아 고객, 직원, 서비스 테이블을 FK로 조인하여 데이터를 활용해야 했습니다.<br/>
+										각 기능에 필요한 쿼리를 작성하는 과정에서 많은 어려움을 겪었지만, 다양한 방법을 시도하며 학습한 결과 더욱 안정적이고 최적화된 쿼리를 작성할 수 있게 되었습니다.<br/>
+										또한, 좋은 팀원들과 협업하며 적극적으로 개발에 참여했고, 오류 발생 시 서로의 문제를 함께 고민하며 해결하는 과정을 통해 협업 능력을 키울 수 있었습니다.<br/>
+										이번 프로젝트를 통해 실무에 가까운 경험을 쌓았으며, 데이터베이스 설계와 쿼리 최적화뿐만 아니라 효과적인 협업 기술까지 배울 수 있었습니다.
+									</li>
+								</ul>
+
+
 								<div class="portfolio-links">
 									<a href="https://github.com/jhpark0105/AcornSpring" target="_blank" class="btn">GITHUB</a>
 									<a href="https://youtu.be/paeIl-SJOf4?si=oMKHbCm4c6uzyu2-" target="_blank" class="btn">YOUTUBE</a>
 									<a href="https://drive.google.com/file/d/1rsslIy2HQ5onx3GqyPF4-MNJzr5K7e1F/view?usp=sharing" target="_blank" class="btn">PDF</a>
+<!--									<a href="javascript:void(0);" onclick="openDetailModal()" class="btn" style="background-color: hotpink">개발 파트 및 느낀점</a>-->
 								</div>
 							</div>
 						</div>
@@ -351,6 +371,34 @@
 <!--					</ul>-->
 
 			</div>
+
+
+		<!-- 포트폴리오 상세 설명 모달 -->
+		<div id="detailModal" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeDetailModal()">&times;</span>
+				<h2>PORT VOL.01 - 맡은 역할 & 프로젝트 회고</h2>
+				<p><strong>맡은 역할:</strong> 백엔드 개발 (Spring Boot, MariaDB, WebSocket 구현)</p>
+				<p><strong>주요 기여:</strong> 사용자 인증(JWT), 실시간 알림(WebSocket), 예약 관리 기능 개발</p>
+				<p><strong>프로젝트 회고:</strong>
+					팀원들과 협업하며 데이터베이스 설계의 중요성을 깨달았고,
+					WebSocket을 통한 실시간 알림 기능을 처음 구현하면서 어려움이 있었지만,
+					문제를 해결해 나가면서 성장할 수 있었음.
+				</p>
+			</div>
+		</div>
+
+		<style>
+			/* 모달 스타일 */
+			.modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.4); }
+			.modal-content { background-color: white; margin: 10% auto; padding: 20px; width: 60%; border-radius: 10px; }
+			.close { color: black; float: right; font-size: 28px; cursor: pointer; }
+		</style>
+
+		<script>
+			function openDetailModal() { document.getElementById("detailModal").style.display = "block"; }
+			function closeDetailModal() { document.getElementById("detailModal").style.display = "none"; }
+		</script>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
